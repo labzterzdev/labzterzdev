@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #000;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        p { margin: 0;}
+
+        #logo {
+            width: 200px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        #countdown { display: flex; gap: 30px; margin-top: 20px;}
+        .number { font-size: 36px; text-align: center;}
+    </style>
+</head>
+<body>
+    <svg width="67" height="49" viewBox="0 0 67 49" fill="none" xmlns="http://www.w3.org/2000/svg" id="logo">
+        <path d="M13.6641 17.7529V12.0622L32.5328 0.381836V5.77277L13.6641 17.7529Z" fill="white"/>
+        <path d="M51.4023 17.7529V12.0622L32.5336 0.381836V5.77277L51.4023 17.7529Z" fill="white"/>
+        <path d="M0.175781 29.8899C0.175781 28.0159 0.55962 26.3451 1.3273 24.8775C2.11755 23.3873 3.15617 22.2245 4.44316 21.3891C5.75273 20.5536 7.17519 20.1359 8.71054 20.1359C10.9233 20.1359 12.6392 20.8359 13.8585 22.2358V20.3053H20.4966V48.3819H13.8585V37.07C12.4586 38.7182 10.7313 39.5424 8.67667 39.5424C7.14132 39.5424 5.71886 39.1359 4.40929 38.3231C3.1223 37.5103 2.09497 36.37 1.3273 34.9024C0.55962 33.4348 0.175781 31.764 0.175781 29.8899ZM13.8585 29.7883C13.8585 28.5239 13.4972 27.5643 12.7747 26.9096C12.0748 26.2322 11.2845 25.8935 10.4039 25.8935C9.52337 25.8935 8.72183 26.2435 7.99931 26.9434C7.29937 27.6208 6.9494 28.603 6.9494 29.8899C6.9494 31.1769 7.29937 32.1478 7.99931 32.8026C8.69925 33.4348 9.5008 33.7509 10.4039 33.7509C11.2845 33.7509 12.0748 33.4122 12.7747 32.7349C13.4972 32.0575 13.8585 31.0753 13.8585 29.7883Z" fill="white"/>
+        <path d="M33.1188 33.6493V39.3053H30.2401C25.3856 39.3053 22.9584 36.9006 22.9584 32.0914V25.8258H20.6215V20.3053H22.9584V15.6992H29.6304V20.3053H33.085V25.8258H29.6304V32.193C29.6304 32.7123 29.7433 33.0848 29.9691 33.3106C30.2175 33.5364 30.6239 33.6493 31.1884 33.6493H33.1188Z" fill="white"/>
+        <path d="M45.0031 33.6493V39.3053H42.1243C37.2699 39.3053 34.8427 36.9006 34.8427 32.0914V25.8258H32.5058V20.3053H34.8427V15.6992H41.5147V20.3053H44.9692V25.8258H41.5147V32.193C41.5147 32.7123 41.6276 33.0848 41.8534 33.3106C42.1017 33.5364 42.5082 33.6493 43.0726 33.6493H45.0031Z" fill="white"/>
+        <path d="M66.1334 20.3053L54.0763 48.3481H46.8624L51.4007 38.4924L43.6111 20.3053H50.9943L54.9908 31.0753L58.8517 20.3053H66.1334Z" fill="white"/>
+        </svg>
+        
+    <p>Coming soon</p>
+    <div id="countdown"></div>
+
+    <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Apr 1, 2024 15:00:00").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+    
+      // Get today's date and time
+      var now = new Date().getTime();
+        
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+        
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+      // Output the result in an element with id="demo"
+      document.getElementById("countdown").innerHTML = "<div><p class=\"number\">" + days + 
+        "</p><p>DAYS</p> </div><div><p class=\"number\">" + hours + 
+            "</p><p>HOURS</p> </div><div><p class=\"number\">" + minutes + "</p><p>mins</p> </div><div><p class=\"number\">" + seconds + "</p><p>SECS</p> </div>";
+        
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+    </script>
+</body>
+</html>
